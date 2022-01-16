@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="img/favicon.png">
+        <title>Faunus</title>
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+            /* 
+                Thin 100
+                Light 300
+                Regular 400
+                Medium 500
+                Bold 700
+                Black 900
+
+                main
+                #0FC1B7
+
+                
+            */
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            a {
+                text-decoration: none;
+            }
+            li {
+                list-style: none;
+            }
+            img {
+                display: block;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            a,
+            div,
+            p,
+            li,
+            ul,
+            select,
+            button,
+            option,
+            form,
+            input {
+                font-size: 14px;
+                font-weight: 400;
+                font-family: "Roboto", sans-serif;
+                color: #fff;
+            }
+            /* 공통 */
+            .container{
+                width: 1048px;
+                margin: 0 auto;
+                display: flex;  
+                position: relative;
+                height: inherit;
+            }
+            /* 헤더 */
+            #header{
+                position: fixed;
+                width: 100%;
+                height: 100px;
+                background-color:transparent;
+                z-index: 999;
+            }
+            #header .container{
+                justify-content: space-between;
+                height: 100%;
+            }
+            #header .top_logo{
+                position: relative;
+                height: 100%;
+            }
+            #header .top_logo a{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            #header .gnb{
+                position: relative;
+                display: flex;
+                align-items: center;
+            }
+            #header .gnb a{
+                font-weight: 700;
+                font-size: 18px;
+                padding: 0 15px;
+            }
+            #header .util{
+                position: absolute;
+                right: 40px;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                align-items: center;
+            }
+            #header .util::after{
+                background: url(img/menu_btn.svg) no-repeat;
+                content: '';
+                width: 15px;
+                height: 15px;
+                display: block;
+                margin-left: 19px;
+            }
+            #header .util a{
+                font-weight: 700;
+                font-size: 18px;
+            }
+            /* 베너 */
+            #banner{
+                background: url(img/bgImg_mainBanner_1.jpg) no-repeat center/cover;
+                height: 1020px;
+                overflow: hidden;
+                position: relative;
+            }
+            #banner .banner_cnt{
+                flex-direction: column;
+                height: 100%;
+            }
+            #banner .banner_cnt .container{
+                flex-direction: column;
+                height: 100%;
+                justify-content: center;
+            }
+
+            #banner .banner_cnt .container .banner_titl{
+                font-size: 64px;
+                font-weight: 700;
+                text-align: center;
+            }
+            #banner .banner_cnt .container .slideBtn_wrap{
+                display: flex;
+                justify-content: space-between;
+                margin: 10px 0; 
+                position: relative;
+            }
+            #banner .banner_cnt .container .slideBtn_wrap::after{
+                position: absolute;
+                right: 100%;
+                top: 50%;
+                transform: translateY(-50%);
+                content: ''; 
+                display: block;
+                height: 1px;
+                width: 50%;
+                background-color: #fff;
+            }
+            #banner .banner_cnt .container .slideBtn_wrap::before{
+                position: absolute;
+                left: 100%;
+                top: 50%;
+                transform: translateY(-50%);
+                content: ''; 
+                display: block;
+                height: 1px;
+                width: 100%;
+                background-color: #fff;
+            }
+            #banner .banner_cnt .container .slideBtn_wrap .btn_inner:first-child:before{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                content: ''; 
+                display: block;
+                height: 1px;
+                width: calc(100% - 120px);
+                background-color: #fff;
+            }
+            #banner .banner_cnt .container .slideBtn_wrap .btn_inner img{
+                cursor: pointer;
+            }
+            #banner .banner_cnt .container .banner_descrip{
+                font-size: 24px;
+                max-width: 630px;
+                word-break: keep-all;
+                margin: 0 auto;
+            }
+            #banner .btm_contents{
+                position: absolute;
+                bottom: 0;
+                display: flex;
+                margin: 0 auto;
+                margin-top: auto;
+                background: rgba(5, 21, 64, 0.8);
+                width: 100%;
+            }
+            #banner .btm_contents .container{
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            #banner .btm_contents .cnt_wrap{
+                min-width: 180px;
+                display: flex;
+                align-items: center;
+            }
+            #banner .btm_contents .cnt_wrap:nth-child(2){
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+            }
+            #banner .btm_contents .cnt_txt{
+                min-width: 180px;
+                padding: 0 30px;
+            }
+            #banner .btm_contents .cnt_wrap .cnt_titl{
+                text-align: left;
+                line-height: 21px;
+                font-size: 18px;
+                font-weight: 700;
+                margin: 10px 0;
+            }
+            /* 스마트 월렛 */
+            #main_cnt_1{
+                background: url(img/bgImg_mainCnt_1.jpg) no-repeat center/cover;
+                height: 750px;
+            }
+            #main_cnt_1 .container{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            #main_cnt_1 .container>*{
+                text-align: center;
+                word-break: keep-all;
+                margin-bottom: 35px;
+            }
+            #main_cnt_1 .container .cnt_titl{
+                color: #0FC1B7;
+                font-size: 24px;
+                font-weight: 700;
+            }
+            #main_cnt_1 .container .sub_titl{
+                color: #000;
+                font-size: 48px;
+                font-weight: 700;
+                width: 1180px;
+            }
+            #main_cnt_1 .container .cnt_bar{
+                background-color: #0FC1B7;
+                width: 150px;
+                height: 3px;
+            }
+            #main_cnt_1 .container .sub_txt{
+                color: #000;
+                font-size: 24px;
+                max-width: 770px;
+            }
+            #main_cnt_1 .container button{
+                background: #0FC1B7;
+                border: none;
+                font-size: 36px;
+                font-weight: 700;
+                cursor: pointer;
+                padding: 15px 65px;
+                min-width: 330px;
+                border-radius: 10px;
+                margin: 0 auto;
+            }
+            /* 인더스트리 */
+            #main_cnt_2{
+                background: linear-gradient(180deg, rgba(152, 33, 154, 0.4) 0%, rgba(29, 25, 29, 0.4) 100%), url(img/bgImg_mainCnt_2.jpg) no-repeat center/cover;
+                height: 1020px;
+                overflow: hidden;
+            }
+            #main_cnt_2 .container{
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+            }
+            #main_cnt_2 .container .titl_wrap{
+                position: relative;
+                margin-top: 90px;
+                text-align: center;
+            }
+            #main_cnt_2 .container .titl_wrap .cnt_titl{
+                color: #0FC1B7;
+                font-size: 24px;
+                font-weight: 700;
+            }
+            #main_cnt_2 .container .titl_wrap .sub_titl{
+                font-size: 48px;
+                font-weight: 700;
+                margin-top: 50px;}
+            #main_cnt_2 .container .slide_wrap {
+                width: 100%;
+                position: relative;
+            }
+            #main_cnt_2 .container .slideBtn_wrap {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                position: relative;
+            }
+            #main_cnt_2 .container .slideBtn_wrap::after{
+                position: absolute;
+                right: 100%;
+                top: 50%;
+                transform: translateY(-50%);
+                content: ''; 
+                display: block;
+                height: 1px;
+                width: 50%;
+                background-color: #fff;
+                box-sizing: border-box;
+            }
+            #main_cnt_2 .container .slideBtn_wrap::before{
+                position: absolute;
+                left: 100%;
+                top: 50%;
+                transform: translateY(-50%);
+                content: ''; 
+                display: block;
+                height: 1px;
+                width: 100%;
+                background-color: #fff;
+            }
+            #main_cnt_2 .container .slideBtn_wrap .btn_inner:first-child:before{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                content: ''; 
+                display: block;
+                height: 1px;
+                width: calc(100% - 120px);
+                background-color: #fff;
+            }
+            #main_cnt_2 .container .slide_wrap .cnt_wrap{
+                z-index: 999;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                width: 85%;
+                justify-content: space-around;
+                text-align: center;
+            }
+            #main_cnt_2 .container .slide_wrap .cnt_wrap .cnt{
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                width: 20%;
+            }
+            #main_cnt_2 .container .slide_wrap .cnt_wrap .cnt .txt_wrap{
+                position: relative;
+                z-index: 999;
+                /* align-items: flex-end; */
+            }
+            #main_cnt_2 .container .slide_wrap .cnt_wrap .cnt .txt_wrap .cnt_titl{
+                position: relative;
+                margin-bottom: 20px;
+                font-size: 24px;
+
+            }
+            #main_cnt_2 .container .slide_wrap .cnt_wrap .cnt .bar{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100px;
+                height: 4px;
+                background-color: #0FC1B7;
+            }
+            #main_cnt_2 .container .slide_wrap .cnt_wrap .cnt .txt_wrap .btn_more{
+                position: relative;
+                font-size: 18px;
+                margin-left: -15px;
+            }
+            #main_cnt_2 .container .slide_wrap .cnt_wrap .cnt .txt_wrap .btn_more::after{
+                content: '';
+                width: 5px; /* 사이즈 */
+                height: 5px; /* 사이즈 */
+                border-top: 1px solid #fff;
+                border-right: 1px solid #fff; 
+                display: inline-block;
+                transform: rotate(45deg) translateY(-50%);
+                position: absolute;
+                top: 50%;
+                right: -15px; 
+
+            }
+            #main_cnt_2 .container .slide_wrap .cnt_wrap .cnt .focus_on{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -65%);
+                width: 200px;
+                height: 200px;
+                border-radius: 100%;
+                background-color: #0FC1B7;
+                opacity: 0.3;
+            }
+
+            /* 파우누스 앱 */
+            #main_cnt_3{
+                background: url(img/bgImg_mainCnt_3.jpg) no-repeat center/cover;
+                height: 1020px;
+            }
+            /* 메타버스 */
+            #main_cnt_4{
+                background: url(img/bgImg_mainCnt_4.jpg) no-repeat center/cover;
+                height: 1020px;
+            }
+            /* 로드맵 */
+            #main_cnt_5{
+                background: url(img/bgImg_mainCnt_5.jpg) no-repeat center/contain;
+                height: 1020px;
+            }
+            /* 푸터 */
+            #footer{
+                /* background: rgba(5, 21, 64, 0.9) url(img/bgimg_footer.jpg) no-repeat center/100% 100%; */
+                background: rgba(5, 21, 64, 0.9) no-repeat center/cover;
+                height: 600px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 헤더 -->
+        <header id="header">
+            <div class="container">
+                <h1 class="top_logo">
+                    <a href="index.html"><img src="img/logo_white.svg" alt="파우누스 로고" /></a>
+                </h1>
+                <nav class="gnb">
+                    <a href="javascript:">Get Started</a>
+                    <a href="javascript:">Solutions</a>
+                    <a href="javascript:">Develop</a>
+                    <a href="javascript:">Foundation</a>
+                    <a href="javascript:">Connect</a>
+                </nav>
+            </div>
+            <nav class="util">
+                <a href="javascript:">FAUNUS APP</a>
+            </nav>
+        </header>
+
+        <!-- 탑 베너 -->
+        <section id="banner">
+            <div class="banner_cnt">
+                <div class="container">
+                    <h2 class="banner_titl">FAUNUS BLOCKCHAIN</h2>
+                    <div class="slideBtn_wrap">
+                        <div class="btn_inner">
+                            <img
+                                src="img/prev_btn_transparent.svg"
+                                alt="컨텐츠 이미지"
+                            />
+                        </div>
+                        <div class="btn_inner">
+                            <img
+                                src="img/next_btn_transparent.svg"
+                                alt="컨텐츠 이미지"
+                            />
+                        </div>
+                    </div>
+                    <p class="banner_descrip">
+                        FNS는 ICT 기술과 블록체인 기술을 융 복합하여 개인의
+                        권리를 안전하게 보호하고 확장성이 뛰어난 독자적 플랫폼
+                        (가상화폐, 전자지갑, 거래소 기술 포함)을 개발하여 세계의
+                        모든 유저에게 제공 하고자 합니다.
+                    </p>
+                </div>
+            </div>
+            <div class="btm_contents">
+                <div class="container">
+                    <div class="cnt_wrap">
+                        <img src="img/btm_cntImg_1.jpg" />
+                        <div class="cnt_txt">
+                            <p class="category">category</p>
+                            <h3 class="cnt_titl">main title</h3>
+                        </div>
+                    </div>
+                    <div class="cnt_wrap cnt_txt">
+                        <p class="category">category</p>
+                        <h3 class="cnt_titl">main title</h3>
+                        <p class="sub_txt">sub text</p>
+                    </div>
+                    <div class="cnt_wrap">
+                        <img src="img/btm_cntImg_2.jpg" />
+                        <div class="cnt_txt">
+                            <p class="category">category</p>
+                            <h3 class="cnt_titl">main title</h3>
+                            <p class="sub_txt">sub text</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 스마트 월렛 -->
+        <section id="main_cnt_1" class="smart_wallet">
+            <div class="container">
+                <h2 class="cnt_titl">SMART WALLET</h2>
+                <div class="sub_titl">
+                    Integrated e-wallet for all of FNS content transactions.
+                </div>
+                <div class="cnt_bar"></div>
+                <p class="sub_txt">
+                    FNS 얼라이언스 플랫폼에 탑재된 FNS-Smart Wallet 전자지갑은
+                    지정된 모든 자산을 통합하여 하나의 아이디로 관리 가능
+                    합니다. FNS Smart Wallet은 크라우드펀드, 쇼핑, 게임, 거래소
+                    등 플랫폼이 API 연동되어 사용할 수 있으며, 자산현황을 확인할
+                    수 있습니다. 블록체인 기반의 강력한 보안시스템으로 자산을
+                    안전하게 보호합니다.
+                </p>
+                <button>SMART WALLET</button>
+            </div>
+        </section>
+
+        <!-- 인더스트리 -->
+        <section id="main_cnt_2" class="industries">
+            <div class="container">
+                <div class="titl_wrap">
+                    <h2 class="cnt_titl">INDUSTRIES</h2>
+                    <div class="sub_titl">FAUNUS Solution</div>
+                </div>
+                <div class="slide_wrap">
+                    <div class="cnt_wrap">
+                        <div class="cnt_1 cnt">
+                            <div class="txt_wrap">
+                                <h3 class="cnt_titl">Block Chain</h3>
+                                <a href="javascript:" class="btn_more">More</a>
+                            </div>
+                            <div class="bar"></div>
+                            <div class="focus_on"></div>
+                        </div>
+                        <div class="cnt_2 cnt">
+                            <div class="txt_wrap">
+                                <h3 class="cnt_titl">Flatform</h3>
+                                <a href="javascript:" class="btn_more">More</a>
+                            </div>
+                            <div class="bar"></div>
+                            <div class="focus_on"></div>
+                        </div>
+                        <div class="cnt_3 cnt">
+                            <div class="txt_wrap">
+                                <h3 class="cnt_titl">Big Data</h3>
+                                <a href="javascript:" class="btn_more">More</a>
+                            </div>
+                            <div class="bar"></div>
+                            <div class="focus_on"></div>
+                        </div>
+                        <div class="cnt_4 cnt">
+                            <div class="txt_wrap">
+                                <h3 class="cnt_titl">On/Off-line Market</h3>
+                                <a href="javascript:" class="btn_more">More</a>
+                            </div>
+                            <div class="bar"></div>
+                            <div class="focus_on"></div>
+                        </div>
+                        <div class="cnt_5 cnt">
+                            <div class="txt_wrap">
+                                <h3 class="cnt_titl">Pet Care</h3>
+                                <a href="javascript:" class="btn_more">More</a>
+                            </div>
+                            <div class="bar"></div>
+                            <div class="focus_on"></div>
+                        </div>
+                    </div>
+                    <div class="slideBtn_wrap">
+                        <div class="btn_inner">
+                            <img src="img/btn_prev_dark.svg" alt="" />
+                        </div>
+                        <div class="btn_inner">
+                            <img src="img/btn_next_dark.svg" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="btmCnt_wrap">
+                    <div class="cnt_1">
+                        <img src="" alt="" class="cnt_icon" />
+                        <h3 class="cnt_titl">Smart Wallet</h3>
+                        <p class="cnt_descipt">
+                            블록체인 기반의 강력한 보안시스템으로 자산을
+                            안전하게 보호합니다.
+                        </p>
+                    </div>
+                    <div class="cnt_2">
+                        <img src="" alt="" class="cnt_icon" />
+                        <h3 class="cnt_titl">Security</h3>
+                        <p class="cnt_descipt">
+                            블록체인 기반으로 해킹, 위변조 등으로부터 안심할 수
+                            있습니다.
+                        </p>
+                    </div>
+                    <div class="cnt_3">
+                        <img src="" alt="" class="cnt_icon" />
+                        <h3 class="cnt_titl">Administration</h3>
+                        <p class="cnt_descipt">
+                            반려동물 관리정보를 체계적으로 관리 가능할 수
+                            있습니다.
+                        </p>
+                    </div>
+                    <button>MORE PAGE</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 파우누스 앱 -->
+        <section id="main_cnt_3" class="faunus_app">
+            <div class="container">
+                <div class="cnt_wrap">
+                    <div class="cnt_1 cnt">
+                        <h2 class="main_titl">FAUNUS APP</h2>
+                        <h3 class="sub_titl">FAUNUS FLATFORM</h3>
+                        <p class="cnt_descipt">
+                            FAUNUS 플랫폼은 최고의 기술력을 제공합니다.
+                        </p>
+                        <a href="javascript:" class="more_btn">View all more</a>
+                    </div>
+                    <div class="cnt_2 cnt">
+                        <h3 class="sub_titl">반려동물</h3>
+                        <p class="cnt_descipt">
+                            반려동물 빅데이터, 건강 관리, 이상행동 조언 등 각종
+                            상식 정보 확인, 간식 및 용품 구매 가능
+                        </p>
+                        <a href="javascript:" class="more_btn">Learn more</a>
+                    </div>
+                    <div class="cnt_3 cnt">
+                        <h3 class="sub_titl">맞춤 솔루션</h3>
+                        <a href="javascript:" class="more_btn">Learn more</a>
+                    </div>
+                    <div class="cnt_4 cnt">
+                        <h3 class="sub_titl">메디컬 센터</h3>
+                        <a href="javascript:" class="more_btn">Learn more</a>
+                    </div>
+                    <div class="cnt_5 cnt">
+                        <h3 class="sub_titl">유전자 빅데이터</h3>
+                        <a href="javascript:" class="more_btn">Learn more</a>
+                    </div>
+                    <div class="cnt_6 cnt">
+                        <h3 class="sub_titl">유전자 진단키트</h3>
+                        <a href="javascript:" class="more_btn">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 메타버스 -->
+        <section id="main_cnt_5" class="metaverse">
+            <div class="container">
+                모든 논휴먼 다중오믹스 및 동물질병의 예방을 위한 진단 및
+                질병치료 등 헬스케어를 제공할 수 있는 빅데이터 플랫폼
+            </div>
+        </section>
+
+        <!-- 로드 맵 -->
+        <section id="main_cnt_6" class="road_map">
+            <div class="container"></div>
+        </section>
+
+        <!-- 푸터 -->
+        <footer id="footer">
+            <div class="container">
+                <h1 class="text_logo">FAUNUS</h1>
+                <div class="address">
+                    <p>어드레스</p>
+                    <p>어드레스</p>
+                    <p>어드레스</p>
+                    <p>어드레스</p>
+                </div>
+                <div class="sns">
+                    <div class="git_hub sns_item">
+                        <img src="" alt="">
+                    </div>
+                    <div class="discord sns_item">
+                        <img src="" alt="">
+                    </div>
+                    <div class="twitter sns_item">
+                        <img src="" alt="">
+                    </div>
+                    <div class="reddit sns_item">
+                        <img src="" alt="">
+                    </div>
+                    <div class="linkedin sns_item">
+                        <img src="" alt="">
+                    </div>
+                    <div class="instagram sns_item">
+                        <img src="" alt="">
+                    </div>
+                    <div class="facebook sns_item">
+                        <img src="" alt="">
+                    </div>
+                </div>
+        </footer>
+    </body>
+</html>
