@@ -65,6 +65,9 @@
                 position: relative;
                 height: inherit;
             }
+            .cur{
+                cursor: pointer;
+            }
             /* 헤더 */
             #header{
                 position: fixed;
@@ -118,7 +121,7 @@
             }
             /* 베너 */
             #banner{
-                background: url(img/bgImg_mainBanner_1.jpg) no-repeat center/cover;
+                background: url(img/bgImg_mainTopBanner_1.jpg) no-repeat center/cover;
                 height: 1020px;
                 overflow: hidden;
                 position: relative;
@@ -269,7 +272,8 @@
             }
             /* 인더스트리 */
             #main_cnt_2{
-                background: linear-gradient(180deg, rgba(152, 33, 154, 0.4) 0%, rgba(29, 25, 29, 0.4) 100%), url(img/bgImg_mainCnt_2.jpg) no-repeat center/cover;
+                /* background: linear-gradient(180deg, rgba(152, 33, 154, 0.4) 0%, rgba(29, 25, 29, 0.4) 100%), url(img/bgImg_mainCnt_2.jpg) no-repeat center/cover; */
+                background: url(img/bgImg_mainMidBanner_1.jpg) no-repeat center/cover;
                 height: 1020px;
                 overflow: hidden;
             }
@@ -356,62 +360,297 @@
             #main_cnt_2 .container .slide_wrap .cnt_wrap .cnt .txt_wrap{
                 position: relative;
                 z-index: 999;
-                /* align-items: flex-end; */
+                display: flex;
+                flex-direction: column;
             }
             #main_cnt_2 .container .slide_wrap .cnt_wrap .cnt .txt_wrap .cnt_titl{
                 position: relative;
-                margin-bottom: 20px;
-                font-size: 24px;
-
+                top: 0px; /*효과 -35*/
+                font-size: 18px; /*효과 36*/
+                height: 100px;
+                transition: margin-bottom .3s ease, font-size .3s ease, top .3s ease;
+                text-align: center;
             }
             #main_cnt_2 .container .slide_wrap .cnt_wrap .cnt .bar{
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                width: 100px;
-                height: 4px;
+                width: 8px; /*효과 100*/
+                height: 8px; /*효과 4*/
+                border-radius: 100%; /*효과 0*/
                 background-color: #0FC1B7;
+                transition: width .3s ease, height .3s ease, border-radius .3s ease;
             }
-            #main_cnt_2 .container .slide_wrap .cnt_wrap .cnt .txt_wrap .btn_more{
+            #main_cnt_2 .container .slide_wrap .cnt_wrap .cnt .btn_more{
                 position: relative;
                 font-size: 18px;
-                margin-left: -15px;
+                top: -10px;
+                display: none;  
             }
-            #main_cnt_2 .container .slide_wrap .cnt_wrap .cnt .txt_wrap .btn_more::after{
+            #main_cnt_2 .container .slide_wrap .cnt_wrap .cnt .btn_more::after{
                 content: '';
-                width: 5px; /* 사이즈 */
-                height: 5px; /* 사이즈 */
+                width: 5px; 
+                height: 5px; 
                 border-top: 1px solid #fff;
                 border-right: 1px solid #fff; 
                 display: inline-block;
                 transform: rotate(45deg) translateY(-50%);
                 position: absolute;
                 top: 50%;
-                right: -15px; 
-
+                margin-left: 5px;
             }
             #main_cnt_2 .container .slide_wrap .cnt_wrap .cnt .focus_on{
                 position: absolute;
                 left: 50%;
                 top: 50%;
                 transform: translate(-50%, -65%);
-                width: 200px;
-                height: 200px;
+                width: 0px; /*효과 200*/
+                height: 0px; /*효과 200*/
                 border-radius: 100%;
-                background-color: #0FC1B7;
-                opacity: 0.3;
+                background-color: rgba(15, 193, 183, 0.3);
+                transition: width .3s ease, height .3s ease;
+                border: 1px solid #0FC1B7;
             }
-
+            #main_cnt_2 .container .btmCnt_wrap{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+            }
+            #main_cnt_2 .container .btmCnt_wrap .cnt_wrap{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+            #main_cnt_2 .container .btmCnt_wrap .cnt_wrap .cnt{
+                display: flex;
+                flex-direction: column;
+                align-items: center ;
+                max-width: 300px;
+                text-align: center;
+                height: 100%;
+            }
+            #main_cnt_2 .container .btmCnt_wrap .cnt_wrap .cnt img{
+                min-height: 55px;
+                max-width: 55px;
+            }
+            #main_cnt_2 .container .btmCnt_wrap .cnt_wrap .cnt .cnt_titl{
+                margin: 50px 0 20px;
+                font-size: 24px;
+                font-weight: 700;
+            }
+            #main_cnt_2 .container .btmCnt_wrap .cnt_wrap .cnt .cnt_descipt{
+                font-size: 16px;
+                word-break: keep-all;
+            }
+            #main_cnt_2 .container .btmCnt_wrap button{
+                position: relative;
+                width: 210px;
+                height: 60px;
+                border: 3px solid #fff;
+                border-radius: 10px;
+                background-color: transparent;
+                margin: 64px 0 52px;
+                font-size: 18px;
+                font-weight: 700;
+            }
             /* 파우누스 앱 */
             #main_cnt_3{
                 background: url(img/bgImg_mainCnt_3.jpg) no-repeat center/cover;
                 height: 1020px;
             }
+            #main_cnt_3 .container .cnt_wrap{
+                display: flex;
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                margin: auto;
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt{
+                width: 330px;
+                height: 330px;
+                box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+                border-radius: 15px;
+                margin-bottom: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                padding: 0 20px;
+                position: relative;
+                overflow: hidden;
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt:nth-child(n+4):nth-child(-n+6){
+                margin-bottom: 0px;
+            }           
+            #main_cnt_3 .container .cnt_wrap .cnt:nth-child(n+2):nth-child(-n+6) .over_box{
+                background-color: rgba(15, 193, 183, 0.3);
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 0%;
+                height: 0%;
+                border-radius: 100%;
+                z-index: 998;
+                transition: width 1s ease, height 1s ease;
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt:nth-child(n+2):nth-child(-n+6):hover .over_box{
+                width: 200%;
+                height: 200%;
+                transition-delay: .2s;
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt .sub_titl{
+                z-index: 999;
+                color: inherit;
+                font-size: 36px;
+                font-weight: 700;
+                margin-bottom: 22px;
+                line-height: 36px;
+                text-shadow: 5px 5px 10px rgba(0,0,0,0.8);
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt .cnt_descipt{
+                z-index: 999;
+                color: inherit;
+                font-size: 18px;
+                margin-bottom: 30px;
+                line-height: 21px;
+                word-break: keep-all;
+                transition: height .3s ease, opacity .3s ease;
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt:nth-child(n+2):nth-child(-n+6) .cnt_descipt{
+                height: 0;
+                opacity: 0;
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt:nth-child(n+2):nth-child(-n+6):hover .cnt_descipt{
+                height: 60px;
+                opacity: 1;
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt .more_btn{
+                z-index: 999;
+                font-size: 18px;
+                font-weight: 700;
+                position: relative;
+                line-height: 21px;
+                color: inherit;
+                text-shadow: 5px 5px 10px rgba(0,0,0,0.8);
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt .more_btn::after{
+                content: '';
+                width: 5px; 
+                height: 5px; 
+                border-top: 1px solid #0FC1B7;
+                border-right: 1px solid #0FC1B7; 
+                display: inline-block;
+                transform: rotate(45deg) translateY(-50%);
+                position: absolute;
+                top: 50%;
+                margin-left: 5px;
+                box-shadow: 5px 5px 10px rgba(0,0,0,1);
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt_1{
+                background-color: #fff;
+                padding: 40px 0 0 60px;
+                text-align: left;
+                justify-content: flex-start;
+                color: #000;
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt_1 .main_titl{
+                color: #0FC1B7;
+                font-size: 18px;
+                font-weight: 700;
+                margin-bottom: 30px;
+                line-height: 21px;
+                color: inherit;
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt_1 .more_btn::after{
+                box-shadow: none;
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt_1 .sub_titl{
+                text-shadow: none;
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt_1 .more_btn{
+                text-shadow: none;
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt_2 {
+                background: url(img/cntImg_pat.jpg) no-repeat center/100% 100%;
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt_3 {
+                background: url(img/cntImg_solution.jpg) no-repeat center/100% 100%;
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt_4 {
+                background: url(img/cntImg_medical.jpg) no-repeat center/100% 100%;
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt_5 {
+                background: url(img/cntImg_geneBigdata.jpg) no-repeat center/100% 100%;
+            }
+            #main_cnt_3 .container .cnt_wrap .cnt_6 {
+                background: url(img/cntImg_geneKit.jpg) no-repeat center/100% 100%;
+            }
             /* 메타버스 */
             #main_cnt_4{
-                background: url(img/bgImg_mainCnt_4.jpg) no-repeat center/cover;
+                background: url(img/frame_bg.jpg) no-repeat center/cover;
                 height: 1020px;
+                position: relative;
+                overflow: hidden;
+            }
+            #main_cnt_4 .img_wrap{
+                position: relative;
+                height: 100%;
+            }
+            #main_cnt_4 .img_wrap img{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            #main_cnt_4 .img_wrap .frame_txt{
+                top: 70%;
+                opacity: 0;
+                transition: top 1s ease, opacity .5s ease;
+            }
+            /* 
+                효과
+                #main_cnt_4:hover .img_wrap .frame_txt{
+                top: 50%;
+                opacity: 1; 
+            }*/
+            #main_cnt_4 .img_wrap .frame{
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+                transition: transform 1s ease, opacity .5s ease;
+            }
+            /* 
+                효과
+                #main_cnt_4:hover .img_wrap .frame{
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+                transition-delay: .7s;
+            } */
+            #main_cnt_4 .txt_wrap{
+                position: absolute;
+                left: 50%;
+                top: 300px;
+                transform: translateX(-50%);
+                text-align: center;
+                display: block;
+                height: auto;
+            }
+            #main_cnt_4 .txt_wrap h2{
+                position: relative;
+                display: block;
+                height: auto;
+                font-size: 24px;
+                transition: left .3s ease, right .3s ease, opacity .3s ease;
+                opacity: 0;
+            }
+            #main_cnt_4 .txt_wrap h2:first-child{
+                left: -200px;/*효과 0*/
+            }
+            #main_cnt_4 .txt_wrap h2:last-child{
+                right: -200px;/*효과 0*/
             }
             /* 로드맵 */
             #main_cnt_5{
@@ -421,7 +660,7 @@
             /* 푸터 */
             #footer{
                 /* background: rgba(5, 21, 64, 0.9) url(img/bgimg_footer.jpg) no-repeat center/100% 100%; */
-                background: rgba(5, 21, 64, 0.9) no-repeat center/cover;
+                background: url(img/bgImg_footer.jpg) no-repeat center/contain;
                 height: 600px;
             }
         </style>
@@ -454,14 +693,14 @@
                     <div class="slideBtn_wrap">
                         <div class="btn_inner">
                             <img
-                                src="img/prev_btn_transparent.svg"
-                                alt="컨텐츠 이미지"
+                                src="img/btn_prev_transparent.svg"
+                                alt="슬라이드 이전" class="cur"
                             />
                         </div>
                         <div class="btn_inner">
                             <img
-                                src="img/next_btn_transparent.svg"
-                                alt="컨텐츠 이미지"
+                                src="img/btn_next_transparent.svg"
+                                alt="슬라이드 다음" class="cur"
                             />
                         </div>
                     </div>
@@ -515,7 +754,7 @@
                     수 있습니다. 블록체인 기반의 강력한 보안시스템으로 자산을
                     안전하게 보호합니다.
                 </p>
-                <button>SMART WALLET</button>
+                <button class="cur">SMART WALLET</button>
             </div>
         </section>
 
@@ -528,7 +767,7 @@
                 </div>
                 <div class="slide_wrap">
                     <div class="cnt_wrap">
-                        <div class="cnt_1 cnt">
+                        <div class="cnt_1 cnt cur">
                             <div class="txt_wrap">
                                 <h3 class="cnt_titl">Block Chain</h3>
                                 <a href="javascript:" class="btn_more">More</a>
@@ -536,7 +775,7 @@
                             <div class="bar"></div>
                             <div class="focus_on"></div>
                         </div>
-                        <div class="cnt_2 cnt">
+                        <div class="cnt_2 cnt cur">
                             <div class="txt_wrap">
                                 <h3 class="cnt_titl">Flatform</h3>
                                 <a href="javascript:" class="btn_more">More</a>
@@ -544,7 +783,7 @@
                             <div class="bar"></div>
                             <div class="focus_on"></div>
                         </div>
-                        <div class="cnt_3 cnt">
+                        <div class="cnt_3 cnt cur">
                             <div class="txt_wrap">
                                 <h3 class="cnt_titl">Big Data</h3>
                                 <a href="javascript:" class="btn_more">More</a>
@@ -552,7 +791,7 @@
                             <div class="bar"></div>
                             <div class="focus_on"></div>
                         </div>
-                        <div class="cnt_4 cnt">
+                        <div class="cnt_4 cnt cur">
                             <div class="txt_wrap">
                                 <h3 class="cnt_titl">On/Off-line Market</h3>
                                 <a href="javascript:" class="btn_more">More</a>
@@ -560,7 +799,7 @@
                             <div class="bar"></div>
                             <div class="focus_on"></div>
                         </div>
-                        <div class="cnt_5 cnt">
+                        <div class="cnt_5 cnt cur">
                             <div class="txt_wrap">
                                 <h3 class="cnt_titl">Pet Care</h3>
                                 <a href="javascript:" class="btn_more">More</a>
@@ -571,39 +810,41 @@
                     </div>
                     <div class="slideBtn_wrap">
                         <div class="btn_inner">
-                            <img src="img/btn_prev_dark.svg" alt="" />
+                            <img src="img/btn_prev_dark.svg" alt="슬라이드 이전" class="cur"/>
                         </div>
                         <div class="btn_inner">
-                            <img src="img/btn_next_dark.svg" alt="" />
+                            <img src="img/btn_next_dark.svg" alt="슬라이드 다음" class="cur"/>
                         </div>
                     </div>
                 </div>
                 <div class="btmCnt_wrap">
-                    <div class="cnt_1">
-                        <img src="" alt="" class="cnt_icon" />
-                        <h3 class="cnt_titl">Smart Wallet</h3>
-                        <p class="cnt_descipt">
-                            블록체인 기반의 강력한 보안시스템으로 자산을
-                            안전하게 보호합니다.
-                        </p>
+                    <div class="cnt_wrap">
+                        <div class="cnt_1 cnt">
+                            <img src="img/icon_smartWallet.svg" alt="스마트 월렛 아이템" class="cnt_icon" />
+                            <h3 class="cnt_titl">Smart Wallet</h3>
+                            <p class="cnt_descipt">
+                                블록체인 기반의 강력한 보안시스템으로<br> 자산을
+                                안전하게 보호합니다.
+                            </p>
+                        </div>
+                        <div class="cnt_2 cnt">
+                            <img src="img/icon_security.svg" alt="보안 아이콘" class="cnt_icon" />
+                            <h3 class="cnt_titl">Security</h3>
+                            <p class="cnt_descipt">
+                                블록체인 기반으로 해킹, 위변조 등으로부터 안심할 수
+                                있습니다.
+                            </p>
+                        </div>
+                        <div class="cnt_3 cnt">
+                            <img src="img/icon_admin.svg" alt="어드민 아이콘" class="cnt_icon" />
+                            <h3 class="cnt_titl">Administration</h3>
+                            <p class="cnt_descipt">
+                                반려동물 관리정보를 체계적으로 관리 가능할 수
+                                있습니다.
+                            </p>
+                        </div>
                     </div>
-                    <div class="cnt_2">
-                        <img src="" alt="" class="cnt_icon" />
-                        <h3 class="cnt_titl">Security</h3>
-                        <p class="cnt_descipt">
-                            블록체인 기반으로 해킹, 위변조 등으로부터 안심할 수
-                            있습니다.
-                        </p>
-                    </div>
-                    <div class="cnt_3">
-                        <img src="" alt="" class="cnt_icon" />
-                        <h3 class="cnt_titl">Administration</h3>
-                        <p class="cnt_descipt">
-                            반려동물 관리정보를 체계적으로 관리 가능할 수
-                            있습니다.
-                        </p>
-                    </div>
-                    <button>MORE PAGE</button>
+                    <button class="cur">MORE PAGE</button>
                 </div>
             </div>
         </section>
@@ -612,52 +853,74 @@
         <section id="main_cnt_3" class="faunus_app">
             <div class="container">
                 <div class="cnt_wrap">
-                    <div class="cnt_1 cnt">
+                    <div class="cnt_1 cnt cur">
+                        <div class="over_box"></div>
                         <h2 class="main_titl">FAUNUS APP</h2>
                         <h3 class="sub_titl">FAUNUS FLATFORM</h3>
                         <p class="cnt_descipt">
-                            FAUNUS 플랫폼은 최고의 기술력을 제공합니다.
+                            FAUNUS 플랫폼은<br> 최고의 기술력을 제공합니다.
                         </p>
                         <a href="javascript:" class="more_btn">View all more</a>
                     </div>
-                    <div class="cnt_2 cnt">
+                    <div class="cnt_2 cnt cur">
+                        <div class="over_box"></div>
                         <h3 class="sub_titl">반려동물</h3>
                         <p class="cnt_descipt">
-                            반려동물 빅데이터, 건강 관리, 이상행동 조언 등 각종
+                            반려동물 빅데이터, 건강 관리,<br> 이상행동 조언 등 각종
                             상식 정보 확인, 간식 및 용품 구매 가능
                         </p>
                         <a href="javascript:" class="more_btn">Learn more</a>
                     </div>
-                    <div class="cnt_3 cnt">
+                    <div class="cnt_3 cnt cur">
+                        <div class="over_box"></div>
                         <h3 class="sub_titl">맞춤 솔루션</h3>
+                        <p class="cnt_descipt">
+                            Lorem Ipsum is simply dummy<br>text of the printing and typesetting industry.
+                        </p>
                         <a href="javascript:" class="more_btn">Learn more</a>
                     </div>
-                    <div class="cnt_4 cnt">
+                    <div class="cnt_4 cnt cur">
+                        <div class="over_box"></div>
                         <h3 class="sub_titl">메디컬 센터</h3>
+                        <p class="cnt_descipt">
+                            Lorem Ipsum is simply dummy<br>text of the printing and typesetting industry.
+                        </p>
                         <a href="javascript:" class="more_btn">Learn more</a>
                     </div>
-                    <div class="cnt_5 cnt">
+                    <div class="cnt_5 cnt cur">
+                        <div class="over_box"></div>
                         <h3 class="sub_titl">유전자 빅데이터</h3>
+                        <p class="cnt_descipt">
+                            Lorem Ipsum is simply dummy<br>text of the printing and typesetting industry.
+                        </p>
                         <a href="javascript:" class="more_btn">Learn more</a>
                     </div>
-                    <div class="cnt_6 cnt">
+                    <div class="cnt_6 cnt cur">
+                        <div class="over_box"></div>
                         <h3 class="sub_titl">유전자 진단키트</h3>
+                        <p class="cnt_descipt">
+                            Lorem Ipsum is simply dummy<br>text of the printing and typesetting industry.
+                        </p>
                         <a href="javascript:" class="more_btn">Learn more</a>
                     </div>
-                </div>
+                </div>  
             </div>
         </section>
 
         <!-- 메타버스 -->
-        <section id="main_cnt_5" class="metaverse">
-            <div class="container">
-                모든 논휴먼 다중오믹스 및 동물질병의 예방을 위한 진단 및
-                질병치료 등 헬스케어를 제공할 수 있는 빅데이터 플랫폼
+        <section id="main_cnt_4" class="metaverse">
+            <div class="img_wrap">
+                <img src="img/frame.png" alt="" class="frame">
+                <img src="img/frame_text.png" alt="메타버스" class="frame_txt">
+            </div>
+            <div class="txt_wrap">
+                <h2>모든 논휴먼 다중오믹스 및 동물질병의 예방을 위한 진단 및</h2>
+                <h2>질병치료 등 헬스케어를 제공할 수 있는 빅데이터 플랫폼</h2>
             </div>
         </section>
 
         <!-- 로드 맵 -->
-        <section id="main_cnt_6" class="road_map">
+        <section id="main_cnt_5" class="road_map">
             <div class="container"></div>
         </section>
 
