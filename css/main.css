@@ -47,10 +47,15 @@ input {
     font-weight: 400;
     font-family: "Roboto", sans-serif;
     color: #fff;
+    letter-spacing: 0.02rem;
 }
 /* 공통 */
 html {
     scroll-behavior: smooth;
+}
+::selection {
+    background-color: #0fc1b7;
+    color: #fff;
 }
 .container {
     width: 1048px;
@@ -197,34 +202,43 @@ html {
 #banner .container .slideBtn_wrap .btn_inner img {
     cursor: pointer;
 }
-#banner .container .banner_cnt {
+#banner .container .banner_cnt_wrap {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    display: none;
+    width: 100%;
+    height: 25%;
 }
-#banner .container .banner_cnt:first-child {
+#banner .container .banner_cnt_wrap .banner_cnt_inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#banner .container .banner_cnt_wrap .banner_cnt_inner .banner_cnt {
+    display: none;
     position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    transform: translateX(-50%);
+}
+#banner .container .banner_cnt_wrap .banner_cnt_inner .banner_cnt:first-child {
     display: block;
 }
 #banner .container .banner_cnt .banner_titl {
     font-size: 64px;
     font-weight: 700;
-    text-align: center;
+    /* text-align: center; */
     padding-bottom: 50px;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+    /* text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8); */
 }
 #banner .container .banner_cnt .banner_descrip {
     font-size: 24px;
-    width: 660px;
+    width: 670px;
     word-break: keep-all;
     margin: 0 auto;
     padding-top: 50px;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 1);
+    /* text-shadow: 5px 5px 10px rgba(0, 0, 0, 1); */
 }
 #banner .btm_contents {
     position: absolute;
@@ -284,7 +298,8 @@ html {
     color: #000;
     font-size: 48px;
     font-weight: 700;
-    width: 1180px;
+    width: 1200px;
+    text-align: center;
 }
 #main_cnt_1 .container .cnt_bar {
     background-color: #0fc1b7;
@@ -294,10 +309,10 @@ html {
 #main_cnt_1 .container .sub_txt {
     color: #000;
     font-size: 24px;
-    max-width: 770px;
+    max-width: 860px;
 }
 #main_cnt_1 .container button {
-    background: #0fc1b7;
+    /* background: #0fc1b7; */
     border: none;
     font-size: 36px;
     font-weight: 700;
@@ -306,9 +321,12 @@ html {
     min-width: 330px;
     border-radius: 10px;
     margin: 0 auto;
+    background: linear-gradient(0deg, #00e0ca, #0fc1b7);
+    background-size: 400% 400%;
+    transition: all 1s ease-out;
 }
 #main_cnt_1 .container button:hover {
-    background: linear-gradient(120deg, #0fc1b7 10%, #00e0ca);
+    background-position: 0% 100%;
 }
 /* 인더스트리 */
 #main_cnt_2 {
@@ -410,7 +428,7 @@ html {
     top: 0px; /*효과 -35*/
     font-size: 18px; /*효과 36*/
     height: 100px;
-    transition: margin-bottom 0.3s ease, font-size 0.3s ease, top 0.3s ease;
+    transition: all 0.3s ease;
     text-align: center;
 }
 #main_cnt_2 .container .slide_wrap .cnt_wrap .cnt .bar {
@@ -427,7 +445,7 @@ html {
 #main_cnt_2 .container .slide_wrap .cnt_wrap .cnt .btn_more {
     position: relative;
     font-size: 18px;
-    top: -10px;
+    top: -25px;
     opacity: 0;
     transition: opacity 0.3s ease-out;
 }
@@ -447,13 +465,13 @@ html {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -65%);
+    transform: translate(-50%, -70%);
     width: 0px; /*효과 200*/
     height: 0px; /*효과 200*/
     border-radius: 100%;
     background-color: rgba(15, 193, 183, 0.3);
     transition: width 0.3s ease, height 0.3s ease;
-    border: 1px solid #0fc1b7;
+    /* border: 1px solid #0fc1b7; */
 }
 #main_cnt_2 .container .btmCnt_wrap {
     display: flex;
@@ -565,7 +583,7 @@ html {
     font-weight: 700;
     margin-bottom: 22px;
     line-height: 36px;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+    /* text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8); */
 }
 #main_cnt_3 .container .cnt_wrap .cnt .cnt_descipt {
     z-index: 999;
@@ -599,7 +617,7 @@ html {
     position: relative;
     line-height: 21px;
     color: inherit;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+    /* text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8); */
 }
 #main_cnt_3 .container .cnt_wrap .cnt .more_btn::after {
     content: "";
