@@ -3,9 +3,11 @@ $(function () {
     $(window).scroll(function () {
         winScroll = $(window).scrollTop();
         if (winScroll > 0) {
-            $("#header").css("background-color", "rgba(72, 87, 118, 0.5)");
+            $("#header").css("background-color", "rgba(72, 87, 118, 0.3)");
+            $("#header .nav_wrap .util").addClass("hoverEffect");
         } else {
             $("#header").css("background-color", "rgba(72, 87, 118, 0)");
+            $("#header .nav_wrap .util").removeClass("hoverEffect");
         }
         if (winScroll > meta) {
             $("#main_cnt_4 .txt_wrap h2:first-child").css({
@@ -43,12 +45,14 @@ $(function () {
             if (slideBtn > 1) {
                 slideBtn = 0;
             }
-            $("#banner").css(
-                "background",
-                "url(../img/bgImg_mainTopBanner_" +
-                    slideBtn +
-                    ".jpg) no-repeat center/cover"
-            );
+            $("#banner .bgimg_wrap img")
+                .eq(slideBtn)
+                .stop(true, true)
+                .css({ left: "0px", opacity: "1" })
+                .siblings()
+                .animate({ left: "-100px", opacity: "0" }, 500)
+                .appendTo("#banner .bgimg_wrap");
+
             topSlider(slideBtn);
         });
     $("#banner .prev_btn")
@@ -58,13 +62,12 @@ $(function () {
             if (slideBtn < 0) {
                 slideBtn = 1;
             }
-            $("#banner").css(
-                "background",
-                "url(../img/bgImg_mainTopBanner_" +
-                    slideBtn +
-                    ".jpg) no-repeat center/cover"
-            );
-            slider(slideBtn);
+            $("#banner .bgimg_wrap img")
+                .eq(slideBtn)
+                .animate({ left: "0px", opacity: "1" }, 100)
+                .siblings("img")
+                .animate({ left: "-100px", opacity: "0" }, 500);
+            topSlider(slideBtn);
         });
     let midBtn = -1;
     let midImg = 1;
@@ -145,12 +148,6 @@ $(function () {
             if (midImg > 2) {
                 midImg = 1;
             }
-
-            // if (index % 2 == 0) {
-            //     midImg = 2;
-            // } else {
-            //     midImg = 1;
-            // }
             midSlider(midBtn);
         });
     $("#main_cnt_2 .prev_btn")
@@ -164,12 +161,6 @@ $(function () {
             if (midImg == 0) {
                 midImg = 1;
             }
-
-            // if (index % 2 == 0) {
-            //     midImg = 2;
-            // } else {
-            //     midImg = 1;
-            // }
             midSlider(midBtn);
         });
     $("#main_cnt_2 .container .slide_wrap .cnt_wrap .cnt").each(function (

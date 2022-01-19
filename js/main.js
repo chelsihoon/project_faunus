@@ -43,11 +43,9 @@ $(function () {
             if (slideBtn > 1) {
                 slideBtn = 0;
             }
-            $("#banner").css(
-                "background",
-                "url(../img/bgImg_mainTopBanner_" +
-                    slideBtn +
-                    ".jpg) no-repeat center/cover"
+            $("#banner>img:first").attr(
+                "src",
+                "img/bgImg_mainTopBanner_" + slideBtn + ".jpg"
             );
             topSlider(slideBtn);
         });
@@ -58,11 +56,9 @@ $(function () {
             if (slideBtn < 0) {
                 slideBtn = 1;
             }
-            $("#banner").css(
-                "background",
-                "url(../img/bgImg_mainTopBanner_" +
-                    slideBtn +
-                    ".jpg) no-repeat center/cover"
+            $("#banner>img:first").attr(
+                "src",
+                "img/bgImg_mainTopBanner_" + slideBtn + ".jpg"
             );
             slider(slideBtn);
         });
