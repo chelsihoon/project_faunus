@@ -13,7 +13,7 @@
         <header id="header">
             <div class="container">
                 <h1 class="top_logo">
-                    <a href="index.html"
+                    <a href="#"
                         ><img src="img/logo_white.svg" alt="파우누스 로고"
                     /></a>
                 </h1>
@@ -25,8 +25,7 @@
                             href="javascirpt:"
                             download=""
                             class="one_depth_title"
-                        >
-                            White Paper</a
+                            >White Paper</a
                         >
                     </li>
                     <li class="one_depth">
@@ -35,16 +34,14 @@
                         >
                     </li>
                     <li class="one_depth">
-                        <a href="#main_cnt_2" class="one_depth_title">
-                            Solution</a
+                        <a href="#main_cnt_2" class="one_depth_title"
+                            >Solution</a
                         >
                     </li>
                     <li class="one_depth">
-                        <div
-                            OnClick="location.href ='#main_cnt_3'"
-                            class="one_depth_title cur"
-                        >
-                            Faunus Platform
+                        <a href="#main_cnt_3" class="one_depth_title cur"
+                            >Faunus Platform
+                            <!-- <a OnClick="location.href ='#main_cnt_3'" -->
                             <ul class="gnb_pdf_box">
                                 <li class="pdf_file">
                                     <a href="javascript:" download=""
@@ -72,7 +69,7 @@
                                     >
                                 </li>
                             </ul>
-                        </div>
+                        </a>
                     </li>
                     <li class="one_depth">
                         <a href="#main_cnt_5" class="one_depth_title">
@@ -83,18 +80,37 @@
                         <a href="#footer" class="one_depth_title"> About</a>
                     </li>
                 </ul>
-                <nav class="util cur">
-                    <div>Language</div>
-                </nav>
+                <a href="">
+                    나는 테스트
+                    <div>나는 테스트 자식</div>
+                </a>
+                <div class="util cur">
+                    <div class="lang_list">
+                        Language
+                        <div class="lang_wrap">
+                            <div class="eng lang">
+                                <input type="radio" name="language" id="eng" />
+                                <label for="eng">English</label>
+                            </div>
+                            <div class="kor lang">
+                                <input type="radio" name="language" id="kor" />
+                                <label for="kor">한국어</label>
+                            </div>
+                            <div class="chn lang">
+                                <input type="radio" name="language" id="chn" />
+                                <label for="chn">中文</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </nav>
         </header>
 
         <!-- 탑 베너 -->
         <section id="banner">
-            <div class="bgimg_wrap">
-                <img src="img/bgImg_mainTopBanner_0.jpg" alt="" />
-                <img src="img/bgImg_mainTopBanner_1.jpg" alt="" />
-            </div>
+            <video autoplay loop muted>
+                <source src="img/top_banner_video.mp4" type="video/mp4" />
+            </video>
             <div class="container">
                 <div class="banner_cnt_wrap">
                     <div class="banner_cnt_inner">
@@ -110,13 +126,14 @@
                             </p>
                         </div>
                         <div class="banner_cnt_2 banner_cnt">
-                            <h2 class="banner_titl">Lorem Ipsum</h2>
+                            <h2 class="banner_titl">FAUNUS BLOCKCHAIN</h2>
                             <p class="banner_descrip">
-                                Lorem Ipsum is simply dummy text of the printing
-                                and typesetting industry.Lorem Ipsum has been
-                                the industry's standard dummy text ever since
-                                the 1500s, when an unknown printer took a galley
-                                of type and
+                                FNS는 ICT 기술과 블록체인 기술을 융 복합하여
+                                개인의 권리를<br />안전하게 보호하고 확장성이
+                                뛰어난 독자적 플랫폼<br />
+                                (가상화폐, 전자지갑, 거래소 기술 포함)을
+                                개발하여<br />
+                                세계의 모든 유저에게 제공 하고자 합니다.
                             </p>
                         </div>
                     </div>
@@ -164,8 +181,8 @@
             </div>
         </section>
 
-        <!-- 스마트 월렛 -->
-        <section id="main_cnt_1" class="smart_wallet">
+        <!-- 월렛 -->
+        <section id="main_cnt_1" class="wallet">
             <div class="container">
                 <h2 class="cnt_titl">Wallet</h2>
                 <div class="sub_titl">
@@ -185,10 +202,12 @@
             </div>
         </section>
 
-        <!-- 인더스트리 -->
-        <section id="main_cnt_2" class="industries">
-            <img src="img/bgImg_mainMidBanner_1.jpg" alt="" />
-            <img src="img/bgImg_mainMidBanner_2.jpg" alt="" />
+        <!-- 솔루션 -->
+        <section id="main_cnt_2" class="solution">
+            <div class="bg_warp">
+                <img src="img/bgImg_mainMidBanner_1.jpg" alt="" />
+                <img src="img/bgImg_mainMidBanner_2.jpg" alt="" />
+            </div>
             <div class="container">
                 <div class="titl_wrap">
                     <h2 class="cnt_titl">Solution</h2>
@@ -300,8 +319,8 @@
             </div>
         </section>
 
-        <!-- 파우누스 앱 -->
-        <section id="main_cnt_3" class="faunus_app">
+        <!-- 파우누스 플랫폼 -->
+        <section id="main_cnt_3" class="faunus_platform">
             <div class="container">
                 <div class="cnt_wrap">
                     <div class="cnt_1 cnt cur">
@@ -393,18 +412,10 @@
                 <div class="bar"></div>
                 <div class="address">
                     <p>
-                        주소 : Lorem Ipsum is simply dummy text of the printing
-                        <br />
-                        and typesetting industry. Lorem Ipsum has been the<br />
-                        industry's standard dummy text ever since the 1500s,<br />
-                        when an unknown printer took a galley of type and
+                        10, Teheran-ro 51-gil, Gangnam-gu, Seoul, Republic of
+                        Korea
                     </p>
-                    <p>
-                        대표자 : 홍길동<br />
-                        전화번호 : 000-000-000<br />
-                        사업등록번호 : 000-0000-0000<br />
-                        Copyright ⓒ 2022 49Week Co., Ltd, All Rights Reserved.
-                    </p>
+                    <p>제휴 및 홍보 문의 : cs@faunus.global</p>
                 </div>
             </div>
             <div class="sns">

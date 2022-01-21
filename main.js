@@ -1,5 +1,6 @@
 $(function () {
-    let meta = $("#main_cnt_4").offset().top - 200;
+    //메타버스
+    let meta = $("#main_cnt_4").offset().top - 300;
     $(window).scroll(function () {
         winScroll = $(window).scrollTop();
         if (winScroll > 0) {
@@ -25,18 +26,19 @@ $(function () {
             $("#main_cnt_4 .img_wrap .frame").css({
                 transform: "translate(-50%, -50%) scale(1)",
                 opacity: "1",
-                "transition-delay": ".7s",
             });
         }
     });
+
+    //탑베너
     let slideBtn = 0;
     function topSlider(index) {
         $("#banner .container .banner_cnt_wrap .banner_cnt")
             .eq(index)
             .stop(true, true)
-            .fadeIn(800)
+            .css({ left: "50%", opacity: "1" })
             .siblings()
-            .fadeOut(500);
+            .css({ left: "35%", opacity: "0" });
     }
     $("#banner .next_btn")
         .stop(true, true)
@@ -45,14 +47,6 @@ $(function () {
             if (slideBtn > 1) {
                 slideBtn = 0;
             }
-            $("#banner .bgimg_wrap img")
-                .eq(slideBtn)
-                .stop(true, true)
-                .css({ left: "0px", opacity: "1" })
-                .siblings()
-                .animate({ left: "-100px", opacity: "0" }, 500)
-                .appendTo("#banner .bgimg_wrap");
-
             topSlider(slideBtn);
         });
     $("#banner .prev_btn")
@@ -62,23 +56,16 @@ $(function () {
             if (slideBtn < 0) {
                 slideBtn = 1;
             }
-            $("#banner .bgimg_wrap img")
-                .eq(slideBtn)
-                .animate({ left: "0px", opacity: "1" }, 100)
-                .siblings("img")
-                .animate({ left: "-100px", opacity: "0" }, 500);
-            topSlider(slideBtn);
         });
+    // 미드베너, 솔루션
     let midBtn = -1;
-    let midImg = 1;
-    // midbanner
+    let midImg = 0;
     function midSlider(index) {
-        $("#main_cnt_2").css({
-            background:
-                "url(../img/bgImg_mainMidBanner_" +
-                midImg +
-                ".jpg) no-repeat center/cover",
-        });
+        $("#main_cnt_2 .bg_warp img")
+            .eq(midImg)
+            .fadeIn(500)
+            .siblings()
+            .fadeOut(500);
         $("#main_cnt_2 .container .slide_wrap .cnt_wrap .cnt")
             .eq(index)
             .find(".cnt_titl")
